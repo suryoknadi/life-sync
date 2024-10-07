@@ -32,3 +32,12 @@ Berikut adalah ilustrasi tampilan dari produk kami :
 </p>
 
 # Rincian Biaya
+|**Item**|**Jumlah**|**Harga Satuan (Rp)**|**Total (Rp)**|
+|:--:|:--:|:--:|:--:|
+|ESP32|1|150.000|150.000|
+|LM35|2|30.000|60.000|
+|Pulse Sensor|1|60.000|60.000|
+|OLED|1|50.000|50.000|
+|Cloud Firebase|-|0|0|
+|Baterai 18650 + Modul Charger|1|100.000|100.000|
+|Total Biaya|---|---|**420.000**|
