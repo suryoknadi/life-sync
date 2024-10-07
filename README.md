@@ -1,5 +1,5 @@
 # life-sync
-Sistem Monitoring Kesehatan Tubuh Berdasarkan Detak Jantung dan Suhu Tubuh berbasis Internet Of Things
+<p align="center" style="font-size:38px"><strong>Sistem Monitoring Kesehatan Tubuh Berdasarkan Detak Jantung dan Suhu Tubuh berbasis Internet Of Things</strong></p>
 
 ![Devour](https://github.com/suryoknadi/life-sync/raw/main/Devour.jpg)
 
