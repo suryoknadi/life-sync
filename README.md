@@ -1,8 +1,7 @@
 # life-sync
 Sistem Monitoring Kesehatan Tubuh Berdasarkan Detak Jantung dan Suhu Tubuh berbasis Internet Of Things
 
-![Logo](images/Devour.png)
-
+![Logo](images/Devour.jpg)
 
 The Stakeholders :
   1. Arfin Nurur Robbi (Project Manager) 
