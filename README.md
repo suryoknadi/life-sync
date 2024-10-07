@@ -4,11 +4,13 @@
 ![Devour](https://github.com/suryoknadi/life-sync/raw/main/Devour.jpg)
 
 The Stakeholders :
-  1. Arfin Nurur Robbi (Project Manager) 
-  2. M Suryo Nadi Pratama (Backend Software)
-  3. Dwiky Bagus Setiawan (Front End Software)
-  4. M Fani Tafazzul Hilmi (Product Design)
-  5. Ira Adi Nata (Firmware)
+| **No**       | **Name**  | **Role**      |
+|------------|------|-----------------|
+| 1      | Arfin Nurur Robbi   | Hardware        |
+| 2        | M Suryo Nadi Pratama   | Backend Software Developer        |
+| 3    | Dwiky Bagus Setyawan   | Frontend Software Developer       |
+| 4 | M Fani Tafazzul Hilmi | Product Design |
+|5 | Ira Adi Nata | Firmware Development |
 
 # Hardware
 
