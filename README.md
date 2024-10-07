@@ -1,7 +1,9 @@
 # Apa itu Life Sync
 <p align="center" style="font-size:38px"><strong>Sistem Monitoring Kesehatan Tubuh Berdasarkan Detak Jantung dan Suhu Tubuh berbasis Internet Of Things</strong></p>
 
-![Devour](https://github.com/suryoknadi/life-sync/raw/main/Devour.jpg)
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Devour.jpg" alt="Devour Image" width="300"/>
+</p>
 
 The Stakeholders :
 | **No**       | **Name**  | **Role**      |
