@@ -13,13 +13,13 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 - **Aplikasi Pendukung** : Terdapat aplikasi mobile yang terhubung ke jaket ini untuk menampilkan data kesehatan secara real-time, dengan fitur notifikasi jika ada anomali seperti peningkatan suhu tubuh yang signifikan atau detak jantung yang tidak normal.
 
 # The Stakeholders :
-| **No**       | **Name**  | **Role**      |
-|------------|------|-----------------|
-| 1      | Arfin Nurur Robbi   | Hardware Developer       |
-| 2        | M Suryo Nadi Pratama   | Back End Software Developer        |
-| 3    | Dwiky Bagus Setyawan   | Front End Software Developer       |
-| 4 | M Fani Tafazzul Hilmi | Product Design |
-|5 | Ira Adi Nata | Firmware Development |
+| **No**       | **Name**  | **Role**      | **Managerial Role** |
+|------------|------|-----------------|----------------------|
+| 1      | Arfin Nurur Robbi   | Hardware Developer       | Project Assistant 1
+| 2        | M Suryo Nadi Pratama   | Back End Software Developer        | **Project Manager** |
+| 3    | Dwiky Bagus Setyawan   | Front End Software Developer       | Financial Manager |
+| 4 | M Fani Tafazzul Hilmi | Product Design | Project Assistant 2 |
+|5 | Ira Adi Nata | Firmware Development | Developer Manager |
 
 # Hardware
 
@@ -40,11 +40,27 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 
 - Tampilan Web (Smartphone)
 
-<img src="../life-sync/Assets/Login Page.png" alt="Login Page" width=150>
-<img src="../life-sync/Assets/Login Page.png" alt="Login Page" width=150>
+<p align=center>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Login Page.png" alt="Login Page" width="150"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/sign up-1.png" alt="Daftar Akun" width="150"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Lupa Akun.png" alt="Lupa Akun" width="150"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Status Aman.png" alt="Status Aman" width="150"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Status Danger.png" alt="Status Danger" width="150"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Perangkat Null.png" alt="Status Null" width="150"/>
+</p>
 
 - Tampilan Web
+<p align=center>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Login Page-2.png" alt="Login Page" width="300"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Sign Up-1(1).png" alt="Daftar Akun" width="300"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Forgot Password.png" alt="Lupa Akun" width="300"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Status Aman-1.png" alt="Status Aman" width="300"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Status Danger-1.png" alt="Status Danger" width="300"/>
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Status Null.png" alt="Status Null" width="300"/>
+</p>
+
 # Rincian Biaya
+
 |**Item**|**Jumlah**|**Harga Satuan (Rp)**|**Total (Rp)**|
 |:--:|:--:|:--:|:--:|
 |ESP32|1|150.000|150.000|
@@ -54,3 +70,4 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 |Cloud Firebase|-|0|0|
 |Baterai 18650 + Modul Charger|1|100.000|100.000|
 |Total Biaya|---|---|**420.000**|
+
