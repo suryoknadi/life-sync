@@ -24,6 +24,32 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 # Hardware
 
 # Software
+**Flowchart**
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Flowchart.png" alt="Gambar Jaket" width="300"/>
+</p>
+
+**Cloud Service Firebase**
+
+<p align="center">
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Firebase.png" alt="Firebase" width="300"/>
+</p>
+
+Firebase adalah platform berbasis cloud dari Google yang digunakan untuk mengembangkan aplikasi web dan seluler. Firebase menyediakan berbagai alat untuk membantu developer dalam proses pengembangan aplikasi
+
+**Programming Language Javascript**
+
+<p align="center">
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Js.png" alt="Javascript" width="300"/>
+</p>
+
+Javascript adalah suatu bahasa pemrograman tingkat tinggi dan dinamis. JavaScript populer di internet dan dapat bekerja di sebagian besar penjelajah web populer seperti Google Chrome, Internet Explorer, Mozilla Firefox, Netscape dan Opera.
+
+<p align="center">
+<img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Css.png" alt="Css" width="300"/>
+</p>
+
+Cascading Style Sheet adalah bahasa lembar gaya yang digunakan sebagai penentu presentasi dan gaya dokumen yang ditulis dalam bahasa markup seperti HTML dan XML. CSS termasuk ke dalam teknologi dasar World Wide Web, bersama dengan HTML dan JavaScript.
 
 # Product Prototype
 **Berikut adalah ilustrasi tampilan dari produk kami :**
