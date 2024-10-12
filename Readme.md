@@ -26,11 +26,24 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 # Software
 
 # Product Prototype
-Berikut adalah ilustrasi tampilan dari produk kami :
+**Berikut adalah ilustrasi tampilan dari produk kami :**
 <p align="center">
   <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Gambar Jaket.png" alt="Gambar Jaket" width="300"/>
 </p>
 
+# Software Prototype
+**Berikut adalah ilustrasi/prototype software dari produk kami :**
+
+[Figma](https://www.figma.com/design/u77I92tS5g2nEtg3ZSGG6L/IOT?m=auto&t=J4cFBzKeM5ls3Jz4-6)
+
+**Screenshots :**
+
+- Tampilan Web (Smartphone)
+
+<img src="../life-sync/Assets/Login Page.png" alt="Login Page" width=150>
+<img src="../life-sync/Assets/Login Page.png" alt="Login Page" width=150>
+
+- Tampilan Web
 # Rincian Biaya
 |**Item**|**Jumlah**|**Harga Satuan (Rp)**|**Total (Rp)**|
 |:--:|:--:|:--:|:--:|
