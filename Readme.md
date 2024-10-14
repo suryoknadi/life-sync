@@ -22,11 +22,22 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 |5 | Ira Adi Nata | Firmware Development | Developer Manager |
 
 # Hardware
+**Schematic Design**
+
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Schematic.png" alt="Schematic" width="300"/>
+</p>
+
+**PCB Design**
+
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/PCB.png" alt="PCB" width="300"/>
+</p>
 
 # Software
 **Flowchart**
 <p align="center">
-  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Flowchart.png" alt="Gambar Jaket" width="300"/>
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Flowchart.png" alt="Flowchart" width="300"/>
 </p>
 
 **Cloud Service Firebase**
