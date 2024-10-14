@@ -31,7 +31,7 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 **PCB Design**
 
 <p align="center">
-  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/PCB.jpg" alt="PCB" width="300"/>
+  <img src="Assets/PCB .jpg" alt="PCB" width="300"/>
 </p>
 
 # Software
