@@ -1,19 +1,32 @@
 /**
  * Intelligent Patient Health Monitoring with-IoT
- * Sensor used  : HX711, GY-906, Blood Pressure
+ * Sensor used  : LM35, Blood Pressure (simulasi using potensiometer)
  * Database     : Firebase RTDB
  *
  * @author  Ira Adi Nata
  * @version v2024.10.07
  */
 
-#include <Arduino.h>
-#include "soc/rtc.h"
-#include "HX711.h"
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_MLX90614.h>
 
+#include <WiFi.h>
+#include <MQTT.h>
+#include <NusabotSimpleTimer.h>
+
+const char *ssid = "Wokwi-GUEST"; 
+const char *password = "";         
+
+const int potPin1 = 34;            // LM35 
+const int potPin2 = 35;            // LM35
+const int potPin3 = 32;            // Pulse sensor
+int potValue1 = 0;
+int potValue2 = 0;
+int potValue3 = 0;
+
+WiFiClient net;
+MQTTClient client;
+NusabotSimpleTimer timer;
+
+//batas
 HX711 scale;
 
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
@@ -151,139 +164,70 @@ void get_blood()
   last_state = b_read;
 }
 
-void init_temperature()
-{
-  if (!mlx.begin())
-  {
-    Serial.println("Error connecting to MLX sensor. Check wiring.");
+void connectWiFi() {
+  Serial.print("Connecting to WiFi...");
+  WiFi.begin(ssid, password);
+  
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
   }
 
-  Serial.print("Emissivity = ");
-  Serial.println(mlx.readEmissivity());
+
+  Serial.println("\nConnected to WiFi!");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 }
 
-void get_temperature()
-{
-  Serial.print("Ambient = ");
-  Serial.print(mlx.readAmbientTempC());
-  Serial.print("*C\tObject = ");
-  Serial.print(mlx.readObjectTempC());
-  Serial.println("*C");
-  Serial.print("Ambient = ");
-  Serial.print(mlx.readAmbientTempF());
-  Serial.print("*F\tObject = ");
-  Serial.print(mlx.readObjectTempF());
-  Serial.println("*F");
-  Serial.println();
-  data_temperature = (int)mlx.readAmbientTempC();
-}
-
-void calib_weight()
-{
-  rtc_cpu_freq_config_t config;
-  rtc_clk_cpu_freq_get_config(&config);
-  rtc_clk_cpu_freq_to_config(RTC_CPU_FREQ_80M, &config);
-  rtc_clk_cpu_freq_set_config_fast(&config);
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  while (1)
-  {
-    if (scale.is_ready())
-    {
-      scale.set_scale();
-      Serial.println("Tare... remove any weights from the scale.");
-      delay(5000);
-      scale.tare();
-      Serial.println("Tare done...");
-      Serial.print("Place a known weight on the scale...");
-      delay(5000);
-      long reading = scale.get_units(10);
-      Serial.print("Result: ");
-      Serial.println(reading);
-    }
-    else
-    {
-      Serial.println("HX711 not found.");
-    }
-    delay(1000);
+void connectMQTT() {
+  Serial.print("Connecting to MQTT...");
+  while (!client.connect("esp32", "lifesyncpens", "vGd5J6PcFyYpOnOn")) {
+    Serial.print(".");
+    delay(1000); 
   }
+  Serial.println("\nConnected to MQTT broker!");
 }
 
-void init_weight()
-{
-  rtc_cpu_freq_config_t config;
-  rtc_clk_cpu_freq_get_config(&config);
-  rtc_clk_cpu_freq_to_config(RTC_CPU_FREQ_80M, &config);
-  rtc_clk_cpu_freq_set_config_fast(&config);
-
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  Serial.println("HX711 Demo");
-  Serial.println("Initializing the scale");
-
-  Serial.println("Before setting up the scale:");
-  Serial.print("read: \t\t");
-  Serial.println(scale.read()); // print a raw reading from the ADC
-  Serial.print("read average: \t\t");
-  Serial.println(scale.read_average(20)); // print the average of 20 readings from the ADC
-  Serial.print("get value: \t\t");
-  Serial.println(scale.get_value(5)); // print the average of 5 readings from the ADC minus the tare weight (not set yet)
-  Serial.print("get units: \t\t");
-  Serial.println(scale.get_units(5), 1); // print the average of 5 readings from the ADC minus tare weight (not set) divided
-                                         // by the SCALE parameter (not set yet)
-
-  scale.set_scale(0); // INSERT YOUR CALIBRATION FACTOR
-  // scale.set_scale(-471.497);                      // this value is obtained by calibrating the scale with known weights; see the README for details
-  scale.tare(); // reset the scale to 0
-
-  Serial.println("After setting up the scale:");
-  Serial.print("read: \t\t");
-  Serial.println(scale.read()); // print a raw reading from the ADC
-  Serial.print("read average: \t\t");
-  Serial.println(scale.read_average(20)); // print the average of 20 readings from the ADC
-  Serial.print("get value: \t\t");
-  Serial.println(scale.get_value(5)); // print the average of 5 readings from the ADC minus the tare weight, set with tare()
-  Serial.print("get units: \t\t");
-  Serial.println(scale.get_units(5), 1); // print the average of 5 readings from the ADC minus tare weight, divided by the SCALE parameter set with set_scale
+void publishData() {
+  client.publish("belajar/iot/suhu", String(potValue1), false, 1);
+  client.publish("belajar/iot/pulse", String(potValue3), false, 1);
 }
 
-void get_weight()
-{
-  Serial.print("one reading:\t");
-  Serial.print(scale.get_units(), 1);
-  Serial.print("\t| average:\t");
-  Serial.println(scale.get_units(10), 5);
-
-  // scale.power_down(); // put the ADC in sleep mode
-  // delay(5000);
-  // scale.power_up();
-}
-
-void setup()
-{
-  Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);
+void setup() {
   Serial.begin(115200);
-  // calib_weight();
-  // init_weight();
-  // init_temperature();
+
+  
+  pinMode(potPin1, INPUT);
+  pinMode(potPin2, INPUT);
+  pinMode(potPin3, INPUT);
+
+  connectWiFi();
+  client.begin("lifesyncpens.cloud.shiftr.io", net);   connectMQTT();
+
+
+  timer.setInterval(1000, publishData);
 }
 
-void loop()
-{
-  get_blood();
-  // get_weight();
-  // get_temperature();
+void loop() {
 
-  datasend[0] = '!';
-  datasend[1] = data_sys;
-  datasend[2] = '@';
-  datasend[3] = data_dia;
-  datasend[4] = '#';
-  datasend[5] = data_bpm;
-  datasend[6] = '$';
-  datasend[7] = data_weight;
-  datasend[8] = '%';
-  datasend[9] = data_ambient;
-  datasend[10] = '^';
-  datasend[11] = data_temperature;
-  datasend[12] = '&';
-  Serial2.write(datasend, sizeof(datasend));
+  potValue1 = analogRead(potPin1);
+  potValue2 = analogRead(potPin2);
+  potValue3 = analogRead(potPin3);
+
+
+  Serial.print("Potentiometer Value1: ");
+  Serial.println(potValue1);
+  Serial.print("Potentiometer Value2: ");
+  Serial.println(potValue2);
+  Serial.print("Potentiometer Value3: ");
+  Serial.println(potValue3);
+
+  if (!client.connected()) {
+    connectMQTT();
+  }
+  client.loop();
+
+  timer.run();
 }
+
