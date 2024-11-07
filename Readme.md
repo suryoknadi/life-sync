@@ -62,6 +62,17 @@ Javascript adalah suatu bahasa pemrograman tingkat tinggi dan dinamis. JavaScrip
 
 Cascading Style Sheet adalah bahasa lembar gaya yang digunakan sebagai penentu presentasi dan gaya dokumen yang ditulis dalam bahasa markup seperti HTML dan XML. CSS termasuk ke dalam teknologi dasar World Wide Web, bersama dengan HTML dan JavaScript.
 
+# MQTT
+Berikut adalah tampilan dari Broker (Shiftr.io) dari Lifesync :
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Foto Simulasi/MQTT-Shiftr.io.png" alt="Gambar Shiftr.io" width="300"/>
+</p>
+
+Berikut cara untuk mengirim data dari Broker (Shiftr.io) ke Firebase :
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/MQTT/Add-Webhook.png" alt="Gambar Shiftr.io for sending data to Firebase" width="300"/>
+</p>
+
 # Product Prototype
 **Berikut adalah ilustrasi tampilan dari produk kami :**
 <p align="center">
