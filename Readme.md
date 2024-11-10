@@ -1,16 +1,23 @@
-# Apa itu Life Sync
+# Life Sync
 <p align="center" style="font-size:38px"><strong>Sistem Monitoring Kesehatan Tubuh Berdasarkan Detak Jantung dan Suhu Tubuh berbasis Internet Of Things</strong></p>
 
 <p align="center">
   <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Devour.jpg" alt="Devour Image" width="300"/>
 </p>
 
-Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Things (IoT) untuk memantau kondisi kesehatan pengguna secara real-time, terutama detak jantung dan suhu tubuh. Jaket ini dilengkapi dengan sensor yang tertanam di bagian dalam kain, yang secara otomatis mengukur parameter vital seperti detak jantung dan suhu tubuh.
+LifeSync is an embedded systems project aimed at developing a smart jacket that can monitor vital signs such as body temperature and heartbeat in real-time. The project features sensor integration and a companion web application that displays health data to ensure users can easily monitor their well-being.
+
+This project is created as part of the Embedded Systems subject, supervised by Akhmad Hendriawan ST. MT. . The jacket's data is synced with a Firebase database, allowing users to view their vitals through a user-friendly interface.
+
+# Disclaimer
+
+> ⚠️ **Note**: The sponsorship by "Good Day" is used as a placeholder for prototype branding and is not an actual sponsorship.
 
 # Features
-- **Sensor Biometrik** : Jaket ini memiliki sensor yang terintegrasi untuk memantau detak jantung dan suhu tubuh secara akurat dan terus menerus.
-- **Konektivitas IoT** : Data yang diperoleh dari sensor akan dikirim secara nirkabel ke smartphone atau perangkat lain yang terhubung melalui jaringan IoT, memungkinkan pemantauan jarak jauh oleh pengguna.
-- **Aplikasi Pendukung** : Terdapat aplikasi mobile yang terhubung ke jaket ini untuk menampilkan data kesehatan secara real-time, dengan fitur notifikasi jika ada anomali seperti peningkatan suhu tubuh yang signifikan atau detak jantung yang tidak normal.
+ **Real-time health monitoring**: Continuously measures body temperature and heartbeat.
+- **Firebase integration**: Stores and retrieves sensor data using Firebase Realtime Database.
+- **User authentication**: Ensures secure access to health data via email and password.
+- **Web application interface**: Built with JavaScript, providing a simple and user-friendly experience.
 
 # The Stakeholders :
 | **No**       | **Name**  | **Role**      | **Managerial Role** |
@@ -20,6 +27,7 @@ Life Sync adalah  sebuah jaket pintar yang menggunakan teknologi Internet of Thi
 | 3    | Dwiky Bagus Setyawan   | Front End Software Developer       | Financial Manager |
 | 4 | M Fani Tafazzul Hilmi | Product Design | Project Assistant 2 |
 |5 | Ira Adi Nata | Firmware Development | Developer Manager |
+|6 | Rendy Firmansyah | Product Finalization | Vice Project Manager
 
 # Hardware
 **Schematic Design**
