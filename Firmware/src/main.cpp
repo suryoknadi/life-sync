@@ -11,12 +11,18 @@
 #include <MQTT.h>
 #include <NusabotSimpleTimer.h>
 
-const char *ssid = "Wokwi-GUEST"; // Ganti dengan SSID WiFi Anda
+const char *ssid = "POCO X6 5G"; // Ganti dengan SSID WiFi Anda
 const char *password = "";         // Ganti dengan password WiFi Anda
 
-const int potPin1 = 34;            // LM35 temperature sensor
-const int potPin2 = 35;            // M35 temperature sensor
-const int potPin3 = 32;            // Pulse sensor
+const int potPin1 = 35;            // LM35 temperature sensor
+const int potPin2 = 34;            // LM35 temperature sensor
+const int potPin3 = 32;   // Pulse sensor
+int signalValue = 0;      // Variabel untuk menyimpan nilai pembacaan
+int threshold = 2000;     // Nilai ambang batas untuk deteksi detak jantung
+int beatCount = 0;
+int bpm;
+unsigned long lastBeatTime = 0;
+unsigned long startTime;         
 int potValue1 = 0;
 int potValue2 = 0;
 int potValue3 = 0;
@@ -51,7 +57,7 @@ void reconnectWiFi() {
 
 void connectMQTT() {
   Serial.print("Connecting to MQTT...");
-  while (!client.connect("Hw-esp32", "lifesyncpens", "6oEYlf1rVZQq1OK7")) {
+  while (!client.connect("2045-03", "lifesyncpens", "6oEYlf1rVZQq1OK7")) {
     Serial.print(".");
     delay(1000); // Delay for 1 second before retrying
   }
@@ -59,9 +65,22 @@ void connectMQTT() {
 }
 
 void publishData() {
-  potValue1 = analogRead(potPin1);
-  potValue2 = analogRead(potPin2);
+  potValue1 = analogRead(potPin1) * (3.3 / 4095.0) * 100.0;
+  potValue2 = analogRead(potPin2) * (3.3 / 4095.0) * 100.0;
   potValue3 = analogRead(potPin3);
+
+  if (potValue3 > threshold && (millis() - lastBeatTime) > 300) {
+    beatCount++;
+    lastBeatTime = millis();
+  }
+
+  // Hitung BPM setiap 10 detik
+  if (millis() - startTime >= 10000) {
+    bpm = (beatCount * 6); // Mengonversi beatCount ke BPM
+    //Serial.print("Detak Jantung (BPM): ");
+    //Serial.println(bpm);
+    startTime = millis();
+  }
 
   // Print sensor values to Serial
   Serial.print("Potentiometer Value1: ");
@@ -69,22 +88,24 @@ void publishData() {
   Serial.print("Potentiometer Value2: ");
   Serial.println(potValue2);
   Serial.print("Potentiometer Value3: ");
-  Serial.println(potValue3);
+  Serial.println(bpm);
 
   // Publish data to MQTT broker
-  client.publish("belajar/iot/suhu1", String(potValue1), false, 1);
   client.publish("belajar/iot/suhu2", String(potValue2), false, 1);
-  client.publish("belajar/iot/pulse", String(potValue3), false, 1);
+  client.publish("belajar/iot/suhu1", String(potValue1), false, 1);
+  client.publish("belajar/iot/pulse", String(bpm), false, 1);
+  
+    beatCount = 0;
 }
 
 void setup() {
   Serial.begin(115200);
 
+  startTime = millis();
   // Set up pins
   pinMode(potPin1, INPUT);
   pinMode(potPin2, INPUT);
   pinMode(potPin3, INPUT);
-
   // Connect to WiFi and MQTT
   connectWiFi();
   client.begin("lifesyncpens.cloud.shiftr.io", net); // Ganti dengan alamat broker MQTT Anda
