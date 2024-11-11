@@ -28,6 +28,15 @@ This project is created as part of the Embedded Systems subject, supervised by A
 - **User authentication**: Ensures secure access to health data via deviceID and password.
 - **Web application interface**: Built with JavaScript, providing a simple and user-friendly experience.
 
+# Lecturer Profile
+
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/Assets/Mr Hendri.jpg" alt="Dosen" width="200"/>
+</p>
+<p  align="center"><b>
+Akhmad Hendriawan ST. MT.<br>
+NIP. 197501272002121003</b>
+</p>
 # 💰 The Stakeholders :
 
 <p align="center">
@@ -92,6 +101,9 @@ Berikut cara untuk mengirim data dari Broker (Shiftr.io) ke Firebase :
 </p>
 
 **Final Product**
+<p align="center">
+  <img src="https://github.com/suryoknadi/life-sync/raw/main/foto & video product/foto product.jpeg" alt="Produk jadi tapi jelek" width="300"/>
+</p>
 
 # 🌐 Software Prototype
 **Berikut adalah ilustrasi/prototype software dari produk kami :**
