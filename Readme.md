@@ -37,6 +37,7 @@ This project is created as part of the Embedded Systems subject, supervised by A
 Akhmad Hendriawan ST. MT.<br>
 NIP. 197501272002121003</b>
 </p>
+
 # 💰 The Stakeholders :
 
 <p align="center">
